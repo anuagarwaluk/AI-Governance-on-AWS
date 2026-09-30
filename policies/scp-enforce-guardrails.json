@@ -1,0 +1,19 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyBedrockInvocationWithoutGuardrail",
+      "Effect": "Deny",
+      "Action": [
+        "bedrock:InvokeModel",
+        "bedrock:InvokeModelWithResponseStream"
+      ],
+      "Resource": "arn:aws:bedrock:*::foundation-model/*",
+      "Condition": {
+        "Null": {
+          "bedrock:GuardrailIdentifier": "true"
+        }
+      }
+    }
+  ]
+}

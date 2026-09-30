@@ -1,0 +1,51 @@
+################################################################################
+# Conformance pack: AI/ML infrastructure best practices
+#
+# A representative subset of the managed rules evaluated in the workshop's
+# governance dashboard. Deploy with governance/deploy_conformance_packs.sh.
+# Each rule surfaces as Compliant / Noncompliant per resource, and the pack
+# gets a single compliance score you can track over time.
+################################################################################
+Resources:
+  DynamodbThroughputLimitCheck:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: dynamodb-throughput-limit-check
+      Source:
+        Owner: AWS
+        SourceIdentifier: DYNAMODB_THROUGHPUT_LIMIT_CHECK
+  DynamodbDeletionProtectionEnabled:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: dynamodb-table-deletion-protection-enabled
+      Source:
+        Owner: AWS
+        SourceIdentifier: DYNAMODB_TABLE_DELETION_PROTECTION_ENABLED
+  CloudwatchLogGroupEncrypted:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: cloudwatch-log-group-encrypted
+      Source:
+        Owner: AWS
+        SourceIdentifier: CLOUDWATCH_LOG_GROUP_ENCRYPTED
+  SagemakerNotebookNoDirectInternetAccess:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: sagemaker-notebook-no-direct-internet-access
+      Source:
+        Owner: AWS
+        SourceIdentifier: SAGEMAKER_NOTEBOOK_NO_DIRECT_INTERNET_ACCESS
+  SagemakerEndpointKmsConfigured:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: sagemaker-endpoint-configuration-kms-key-configured
+      Source:
+        Owner: AWS
+        SourceIdentifier: SAGEMAKER_ENDPOINT_CONFIGURATION_KMS_KEY_CONFIGURED
+  S3BucketSslRequestsOnly:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: s3-bucket-ssl-requests-only
+      Source:
+        Owner: AWS
+        SourceIdentifier: S3_BUCKET_SSL_REQUESTS_ONLY
